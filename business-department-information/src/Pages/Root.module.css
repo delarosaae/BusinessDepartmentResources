@@ -1,0 +1,30 @@
+.pageContainer{
+    min-height: 100svh;
+    min-width: 100svw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: .2fr 1fr 1fr 1fr .25fr;
+}
+
+.dashboardBar{
+    grid-column: 1/6;
+    grid-row: 1/2;
+}
+
+.leftBar{
+    grid-column: 1/2;
+    grid-row: 2/6;
+}
+
+.body{
+    grid-column: 2/6;
+    grid-row: 2/5;
+}
+
+.bottomBar{
+    padding: 1%;
+    text-align: center;
+    background-color: cornflowerblue;
+    grid-column: 1/6;
+    grid-row: 5/6;
+}
