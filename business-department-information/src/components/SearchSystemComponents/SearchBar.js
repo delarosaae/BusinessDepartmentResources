@@ -14,9 +14,8 @@ const SearchBar = ({searchResult}) =>{
         }
 
         const response = await fetch('http://localhost:5000/department', {
-            method: 'POST',
             body: JSON.stringify(values),
-            headers: {
+            headers: { 
                 'Content-Type': 'application/json'
             }
         })

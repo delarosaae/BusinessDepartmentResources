@@ -3,9 +3,14 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 10fr;
+    margin: 0;
 }
 
 .departmentViewer{
     grid-column: 1/6;
     grid-row: 2/3;
+    height: 90%;
+    overflow:scroll;
+    margin: 0;
+    width: 100%;
 }

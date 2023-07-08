@@ -14,6 +14,7 @@
 .leftBar{
     grid-column: 1/2;
     grid-row: 2/6;
+    background-color: lightcyan;
 }
 
 .body{

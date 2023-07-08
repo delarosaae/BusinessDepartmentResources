@@ -4,6 +4,7 @@
 #ignore database file
 /BackEnd/Credentials.txt
 BackEnd/Credentials.txt
+Credentials.txt
 
 ### Java ###
 # Compiled class file
