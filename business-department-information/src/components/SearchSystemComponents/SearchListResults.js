@@ -1,11 +1,15 @@
 import SearchResult from "./SearchResult";
+import styles from './SearchListResults.module.css'
 
-const SearchListResults = ({props}) =>{
+const SearchListResults = (props) =>{
+
+    console.log(props.resultList)
+
     return (
-        <div className="search-result-list">
+        <div className={styles.resultsList}>
             {
-                props.map((prop, id) =>{
-                    return <SearchResult result={props.name} key={id}/>
+                props.resultList.map((item) =>{
+                    return <SearchResult result={item.resourceInfo} id={item.resourceID}/>
                 })
             }
         </div>

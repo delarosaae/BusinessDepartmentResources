@@ -34,7 +34,6 @@ def hello_world():  # put application's code here
 
 @app.route('/department/addDepartment', methods=['POST'])
 def get_result_list():
-
     if request.method == 'POST':
         data = request.get_json(force=True)
         print("Here is the data that we got ")
@@ -53,25 +52,27 @@ def get_result_list():
         print(number)
         return jsonify(results)
 
+
 @app.route('/department/getDepartments', methods=['GET'])
 def get_department_list():
     if request.method == 'GET':
         cursor = mysql.connection.cursor()
         cursor.execute('''Select * from Departments''')
         results = cursor.fetchall()
-        #dict_obj = {'row': results}
-        #print("This is dict Json dumps" + json.dumps(dict_obj))
-        #print(json.dumps(results))
+        # dict_obj = {'row': results}
+        # print("This is dict Json dumps" + json.dumps(dict_obj))
+        # print(json.dumps(results))
         department = []
         content = {}
         for row in results:
-            content = {'id':row[0], 'department':row[1]}
+            content = {'id': row[0], 'department': row[1]}
             department.append(content)
             content = {}
         print(department)
         print("Json here " + json.dumps(department))
 
         return jsonify(department)
+
 
 @app.route('/employees/getEmployees/search', methods=['GET'])
 def get_employees_list():
@@ -118,6 +119,32 @@ def add_resource_information():
         print(jsonify(results))
         print(number)
         return jsonify(results)
+
+
+@app.route('/resources/search', methods=['GET'])
+def get_search_list():
+    if request.method == 'GET':
+        args = request.args
+        print("in Here----")
+        print(args)
+        search = args.get("seek", default=0, type=str)
+        print(search)
+        print("Value here -------------------" + search)
+        cursor = mysql.connection.cursor()
+        query_String = "SELECT * FROM resources WHERE resourceInfo LIKE %s"
+        print(query_String)
+        cursor.execute(query_String, ["%" + search + "%"])
+        results = cursor.fetchall()
+        print(results)
+        searchResult = []
+        for row in results:
+            print(row)
+            content = {'resourceID': row[0], 'departmentID': row[1], 'createdByEmployeeID': row[2],
+                       'departmentSection': row[3], 'resourceInfo': row[4]}
+            searchResult.append(content)
+            content = {}
+        return jsonify(searchResult)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

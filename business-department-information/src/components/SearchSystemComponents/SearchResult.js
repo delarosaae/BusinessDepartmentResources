@@ -1,10 +1,13 @@
-const SearchResult = ({props}) => {
+import styles from './SearchResult.module.css'
+
+const SearchResult = (props) => {
+    console.log(props)
 
     return(
-        <div className="search-result"
-            onClick={(e)=> alert('You selected $(result)')}
+        <div className={styles.searchResult}
+            onClick={(e)=> alert('You selected ' + props.id)}
         >
-            {props}
+            {props.result}
         </div>
     );
 

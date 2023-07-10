@@ -16,7 +16,7 @@ const Employees = (props) =>{
     const fetchEmployeeList = useCallback( async() =>{
 
         try {
-            const response = await fetch(`http://localhost:5000//employees/getEmployees/search?departmentID=${idDepartmentNeeded}`)
+            const response = await fetch(`http://localhost:5000/employees/getEmployees/search?departmentID=${idDepartmentNeeded}`)
             if(!response.ok)
             {
 
