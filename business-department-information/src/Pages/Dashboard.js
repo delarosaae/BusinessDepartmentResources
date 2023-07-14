@@ -18,7 +18,7 @@ const Dashboard = (props) => {
                     </li>
                 </ul>
             </nav>
-            <div className={styles.searchBar}> <SearchComponent></SearchComponent></div>
+            <SearchComponent></SearchComponent>
             <div className={styles.accountChoices}>
                 Account
             </div>

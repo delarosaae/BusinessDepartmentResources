@@ -4,6 +4,7 @@ import Home from "./Pages/Home";
 import Department from "./Pages/Department";
 import Employees from "./Pages/Employees";
 import Resources from "./Pages/Resources";
+import Dashboard from "./Pages/Dashboard";
 
 
 

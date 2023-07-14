@@ -1,5 +1,7 @@
 .pageContainer{
+    max-height: 100svh;
     min-height: 100svh;
+    max-width: 100svw;
     min-width: 100svw;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;

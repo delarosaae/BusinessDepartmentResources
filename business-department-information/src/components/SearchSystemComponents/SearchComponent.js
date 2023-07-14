@@ -2,9 +2,11 @@ import {useState} from "react";
 import SearchBar from "./SearchBar";
 import SearchListResults from "./SearchListResults";
 import styles from "./SearchComponent.module.css"
+import React from "react";
 
 const SearchComponent = (props) =>{
     const [resultList, setResults] = useState([]);
+    const [exampleList, setExampleList] = useState([{resourceInfo: "Hi", resourceID: "2"}])
 
     {/*
         <div className={styles.searchComponent}>
@@ -17,11 +19,22 @@ const SearchComponent = (props) =>{
         */
     }
 
-    return(
-            <div className={styles.searchBarContainer}>
+    {/*
+    <div className={styles.searchBarContainer}>
                 <SearchBar setResults={setResults}/>
                 {resultList && resultList.length > 0 && <SearchListResults resultList={resultList} />}
             </div>
+    */}
+
+    return(
+        <div className={styles.searchComponent}>
+            <SearchBar setResults={setResults}/>
+            <div className={styles.searchDrop}>
+                <SearchListResults  resultList={exampleList} />
+            </div>
+        </div>
+
+
     )
 }
 

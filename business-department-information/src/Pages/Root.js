@@ -8,6 +8,7 @@ const Root = (props) =>{
             <div className={styles.dashboardBar}>
                 <Dashboard></Dashboard>
             </div>
+
             <div className={styles.leftBar}> Organization</div>
             <div className={styles.body}>
                 <Outlet></Outlet>
