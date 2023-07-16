@@ -17,7 +17,7 @@ const StrippedTable = (props) =>{
 
     const showEmployeeList = (id) => {
 
-        console.log(id)
+        //console.log(id)
 
         // navigate('/Employees', {state:{depID: choosenID}});
     }
@@ -29,7 +29,7 @@ const StrippedTable = (props) =>{
                 <thead>
                 <tr>
                     {columnId.map(column => {
-                        return (<th>{column}</th>)})}
+                        return (<th key={column}>{column}</th>)})}
                 </tr>
                 </thead>
                 <tbody>

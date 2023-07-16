@@ -8,7 +8,7 @@ const Dashboard = (props) => {
             <nav className={styles.navChoices}>
                 <ul className={styles.choices}>
                     <li>
-                        <Link to="/Home">Home</Link>
+                        <Link to="/">Home</Link>
                     </li>
                     <li>
                         <Link to="/Department">Department</Link>

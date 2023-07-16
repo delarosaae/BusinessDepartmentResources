@@ -23,13 +23,13 @@ const Department = () =>{
             }
 
             const data = await response.json()
-            console.log(data)
+            //console.log(data)
             const listData = [];
             for (const key in data)
             {
-                console.log(key)
-                console.log(data[key].department)
-                console.log("This is id" + data[key].id)
+                //console.log(key)
+                //console.log(data[key].department)
+                //console.log("This is id" + data[key].id)
                 /*
                 listData.push([
 
@@ -59,9 +59,9 @@ const Department = () =>{
         if(sentinelAddTrue === true){
             fetchDepartmentList()
         }
-        console.log("Sentinel value of modal " + sentinelAddTrue)
+        //console.log("Sentinel value of modal " + sentinelAddTrue)
         setSentinelAddTrue(!sentinelAddTrue)
-        console.log("Sentinel value of modal " + sentinelAddTrue)
+        //console.log("Sentinel value of modal " + sentinelAddTrue)
     };
 
     const onConfirmAddInputHandler = () =>{

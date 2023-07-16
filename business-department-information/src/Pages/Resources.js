@@ -21,9 +21,9 @@ const Resources = (props) =>{
                 (data) => {
                     const listData = [];
                     for (const key in data) {
-                        console.log(key)
-                        console.log(data[key].department)
-                        console.log("This is id" + data[key].id)
+                        //console.log(key)
+                        //console.log(data[key].department)
+                        //console.log("This is id" + data[key].id)
                         /*
                         listData.push([
 

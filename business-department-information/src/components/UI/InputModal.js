@@ -27,7 +27,7 @@ const InputModal = (props) => {
             //headID: enteredDeptHeadId
         }
 
-        console.log(info)
+        //console.log(info)
         const infoArray = []
 
         infoArray.push(info)
@@ -41,8 +41,8 @@ const InputModal = (props) => {
             }
         });
         const data = await response.json();
-        console.log("here is data below")
-        console.log(data);
+        //console.log("here is data below")
+        //console.log(data);
 
         props.changeInputModal();
     }
@@ -67,7 +67,7 @@ const InputModal = (props) => {
             }
         });
         const data = await response.json();
-        console.log(data);
+        //console.log(data);
     }
 
     return (

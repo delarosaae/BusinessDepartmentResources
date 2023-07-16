@@ -12,6 +12,11 @@ const SearchBar = (props) =>{
         {
             console.log("Longer than 0 letters")
             try {
+                if(value.includes(" "))
+                {
+                    value = value.replace(/[ ,]+/g, ",");
+                }
+
                 const response = await fetch(`http://localhost:5000/resources/search?seek=${value}`)
                 if(!response.ok)
                 {
@@ -19,7 +24,7 @@ const SearchBar = (props) =>{
                 }
 
                 const data = await response.json()
-                console.log(data)
+                console.log("Data of the search results " + data)
                 const listData = [];
                 for (const key in data)
                 {
@@ -31,7 +36,7 @@ const SearchBar = (props) =>{
                         resourceInfo: data[key].resourceInfo,
                     })
                 }
-
+                console.log("List of the data right here: " + listData)
                 props.setResults(listData)
             }
             catch (error)
@@ -51,7 +56,6 @@ const SearchBar = (props) =>{
         <form className={styles.searchBar} >
             <input className={styles.inputField} value={searchInput} placeholder={"Search"}
             onChange={handleSearchInput}/>
-           
         </form>
     );
 }

@@ -4,7 +4,6 @@ import Home from "./Pages/Home";
 import Department from "./Pages/Department";
 import Employees from "./Pages/Employees";
 import Resources from "./Pages/Resources";
-import Dashboard from "./Pages/Dashboard";
 
 
 
@@ -12,7 +11,7 @@ const router = createBrowserRouter([
   {   path: '/',
     element: <Root/>,
     children: [
-        {path: '/Home', element: <Home/>},
+        {path: '/', element: <Home/>},
         {path: '/Department', element: <Department/>},
         {path: '/Employees', element: <Employees/>},
         {path: '/Resources', element: <Resources/>},

@@ -23,17 +23,17 @@ const InputModalResources = (props) => {
 
 
     const deptNameChangeHandler = (event) => {
-        console.log(event.target.value)
+        //console.log(event.target.value)
         const valueArray = event.target.value.split(',')
-        console.log(valueArray[0])
-        console.log(valueArray[1])
+        //console.log(valueArray[0])
+        //console.log(valueArray[1])
         setEnteredDepartmentID(valueArray[0])
         setEnteredDepartmentName(valueArray[1])
         addEmployeeList(valueArray[0]);
     }
 
     const deptEmployeeChangeHandler = (event) =>{
-        console.log(event.target.value)
+        //console.log(event.target.value)
 
         setEnteredEmployeeID(event.target.value)
     }
@@ -58,13 +58,13 @@ const InputModalResources = (props) => {
             const response = await fetch(`http://localhost:5000//employees/getEmployees/search?departmentID=${idToLookUp}`)
 
             const data = await response.json()
-            console.log(data)
+            //console.log(data)
             const listData = [];
             for (const key in data)
             {
-                console.log(key)
-                console.log(data[key])
-                console.log("This is id" + data[key].employeeID)
+                //console.log(key)
+                //console.log(data[key])
+                //console.log("This is id" + data[key].employeeID)
                 /*
                 listData.push([
 
@@ -79,7 +79,7 @@ const InputModalResources = (props) => {
                 })
             }
             setEnteredEmployeeID(listData[0].employeeID)
-            console.log("Employee ID on choosing department "+ listData[0].employeeID)
+            //console.log("Employee ID on choosing department "+ listData[0].employeeID)
             setEmployeeList(listData)
         }
         catch (error)
@@ -100,11 +100,11 @@ const InputModalResources = (props) => {
             information: enteredResourceInformation
         }
 
-        console.log(info)
+        //console.log(info)
         const infoArray = []
 
         infoArray.push(info)
-        console.log(infoArray)
+        //console.log(infoArray)
 
         const response = await fetch("http://localhost:5000/resources/addResource", {
             method: 'POST',
@@ -114,9 +114,9 @@ const InputModalResources = (props) => {
             }
         });
         const data = await response.json();
-        console.log("here is data below")
-        console.log(data);
-        console.log("data added")
+        //console.log("here is data below")
+        //console.log(data);
+        //console.log("data added")
 
         props.changeInputModal();
     }
@@ -128,9 +128,9 @@ const InputModalResources = (props) => {
                         const listData = [];
                         for (const key in data)
                         {
-                            console.log(key)
-                            console.log(data[key])
-                            console.log("This is id" + data[key].employeeID)
+                            //console.log(key)
+                            //console.log(data[key])
+                            //console.log("This is id" + data[key].employeeID)
                             /*
                             listData.push([
 
@@ -146,7 +146,7 @@ const InputModalResources = (props) => {
                         }
                         setEnteredDepartmentID(departmentList[0].id.toString())
                         setEnteredEmployeeID(listData[0].employeeID.toString())
-                        console.log("Employee ID on choosing department "+ listData[0].employeeID)
+                        //console.log("Employee ID on choosing department "+ listData[0].employeeID)
                         setEmployeeList(listData)
                     })
             }

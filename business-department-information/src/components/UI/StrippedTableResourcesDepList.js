@@ -28,7 +28,7 @@ const StrippedTable = (props) =>{
             <thead>
             <tr>
                 {columnId.map(column => {
-                    return (<th>{column}</th>)})}
+                    return (<th key={column}>{column}</th>)})}
             </tr>
             </thead>
             <tbody>

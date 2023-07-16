@@ -8,6 +8,13 @@ const SearchComponent = (props) =>{
     const [resultList, setResults] = useState([]);
     const [exampleList, setExampleList] = useState([{resourceInfo: "Hi", resourceID: "2"}])
 
+    const [showSearchList, setShowSearchList] = useState(false)
+
+
+    const showSearchListHandler = () =>{
+        setShowSearchList(!setShowSearchList())
+    }
+
     {/*
         <div className={styles.searchComponent}>
             <div className={styles.searchBarContainer}>
@@ -29,9 +36,9 @@ const SearchComponent = (props) =>{
     return(
         <div className={styles.searchComponent}>
             <SearchBar setResults={setResults}/>
-            <div className={styles.searchDrop}>
-                <SearchListResults  resultList={exampleList} />
-            </div>
+            {resultList && resultList.length > 0 && <div className={styles.searchDrop}>
+                <SearchListResults resultList={resultList}/>
+            </div>}
         </div>
 
 

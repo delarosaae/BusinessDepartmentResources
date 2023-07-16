@@ -130,6 +130,8 @@ def get_search_list():
         search = args.get("seek", default=0, type=str)
         print(search)
         print("Value here -------------------" + search)
+        if ' ' in search:
+            different = search.split(",")
         cursor = mysql.connection.cursor()
         query_String = "SELECT * FROM resources WHERE resourceInfo LIKE %s"
         print(query_String)

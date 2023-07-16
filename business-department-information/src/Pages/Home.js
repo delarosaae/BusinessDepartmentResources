@@ -1,9 +1,62 @@
+
+import InfoBoxDepartment from "../components/UI/InfoBoxDepartment";
+import Container from "../components/UI/Container";
+import styles from "./Home.module.css"
+
 const Home = (props) =>{
     return(
-        <div>
-            <div>Name of Business</div>
-            <div>List of Departments</div>
-            <div>Name of the people in these departments</div>
+        <div className={styles.home}>
+            <Container>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+                <InfoBoxDepartment></InfoBoxDepartment>
+
+            </Container>
         </div>
     )
 }
