@@ -1,15 +1,22 @@
 import styles from "./InfoBox.module.css"
 const InfoBoxDepartment = (props) =>{
+
+    console.log(props.iconURL)
+
     return(
         <div className={styles.card}>
-                <div>
-                    Info
-                </div>
-            <div>
-                Label
+            <img
+                className={styles.imagePosition}
+                src={props.iconURL}
+                alt="Failed To Load"
+            />
+            <div
+                className={styles.departmentName}
+            >
+                {props.name}
             </div>
-            <div>
-                Image
+            <div className={styles.departmentInfo}>
+                Info
             </div>
         </div>
     )

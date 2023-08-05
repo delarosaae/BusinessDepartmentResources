@@ -33,12 +33,22 @@ const SearchComponent = (props) =>{
             </div>
     */}
 
+    const [clickedOnSearch, setClickedOnSearch] = useState(false)
+
     return(
         <div className={styles.searchComponent}>
-            <SearchBar setResults={setResults}/>
-            {resultList && resultList.length > 0 && <div className={styles.searchDrop}>
-                <SearchListResults resultList={resultList}/>
+            <div className={styles.searchBarAlignToMiddle}>
+                <SearchBar showResultClicked={setClickedOnSearch} setResults={setResults}/>
+            </div>
+            {clickedOnSearch && <div className={styles.searchDrop}>
+                <SearchListResults  resultList={resultList}/>
             </div>}
+            {/*
+                resultList && resultList.length > 0 && <div className={styles.searchDrop}>
+                <SearchListResults resultList={resultList}/>
+            </div>
+            */
+            }
         </div>
 
 

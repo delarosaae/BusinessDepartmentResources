@@ -1,0 +1,4 @@
+.displayItems{
+    display: flex;
+    flex-direction: column;
+}

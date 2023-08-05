@@ -2,6 +2,7 @@ import Table from 'react-bootstrap/Table';
 import {Link} from "react-router-dom";
 import {useLocation, useNavigate} from "react-router-dom";
 import {useState} from "react";
+import GetIDButton from "./GetIDButton";
 
 const StrippedTable = (props) =>{
 
@@ -15,11 +16,10 @@ const StrippedTable = (props) =>{
 
     const extraInfo = <td><button>Here</button></td>
 
-    const showEmployeeList = (id) => {
+    const editDepartment = (id) => {
 
-        //console.log(id)
-
-        // navigate('/Employees', {state:{depID: choosenID}});
+        console.log(id)
+        props.editItem(id)
     }
 
 
@@ -69,7 +69,7 @@ const StrippedTable = (props) =>{
                         <td>{dept.id}</td>
                         <td>{dept.department}</td>
                         <td>  <Link to="/Employees" state={{idChosen: dept.id}}>Employees List</Link></td>
-                        <td>  <button className="" onClick={() =>showEmployeeList(dept.id)}>Edit</button> </td>
+                        <td>  <GetIDButton ></GetIDButton> </td>
                     </tr>
                 })
                 }

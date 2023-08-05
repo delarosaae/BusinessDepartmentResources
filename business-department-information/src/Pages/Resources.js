@@ -1,7 +1,12 @@
-import {useCallback, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import InputModalResources from "../components/UI/InputModalResources";
 import StrippedTable from "../components/UI/StrippedTable";
 import StrippedTableResourcesDepList from "../components/UI/StrippedTableResourcesDepList";
+import ButtonFilter from "../components/Tailwind/Flowbite/ButtonFilter";
+import styles from './Resources.module.css'
+import {createTheme, Switch, ThemeProvider} from "@mui/material";
+import SwitchTwoOptions from "../components/InteractiveUI/SwitchTwoOptions";
+import FilterLabelTransitionDuration from "../components/TailwindAndMaterialUI/FilterLabelTransitionDuration";
 
 const Resources = (props) =>{
 
@@ -47,13 +52,34 @@ const Resources = (props) =>{
 
     const cancelAdditionHandler = () =>{
         setShowModal(false)
+
+
     }
 
+
+
     return(
-        <div>
+        <div className={styles.resourceMain}>
             {showModal && <InputModalResources changeInputModal={showInputHandler} cancel={cancelAdditionHandler} listOfDepartment={departmentList}></InputModalResources>}
-            <button onClick={showInputHandler}>Add Resource</button>
-            <div>
+
+
+            {/*
+            <ButtonFilter></ButtonFilter>
+
+                <button
+                    className="h-10 w-25 relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+                    Size
+                </button>
+            */}
+            <button className={styles.addResource} onClick={showInputHandler}>Add Resource</button>
+
+            <div className={styles.filterDuration}>
+                <FilterLabelTransitionDuration ></FilterLabelTransitionDuration>
+            </div>
+
+            <SwitchTwoOptions firstOption={"Department"} secondOption={"Resource"}></SwitchTwoOptions>
+
+            <div className={styles.tableForResources}>
                 {/*
                 So then show a list of departments here,
                 but now have a link for each that will take us to that departments resources

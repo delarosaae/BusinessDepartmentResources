@@ -95,7 +95,7 @@ const InputModalResources = (props) => {
 
         const info = {
             departmentID: enteredDepartmentID,
-            employeeID: enteredEmployeeID,
+            employeeID: enteredEmployeeID.toString(),
             section: enteredResourceSection,
             information: enteredResourceInformation
         }

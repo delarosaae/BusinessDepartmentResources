@@ -1,3 +1,5 @@
+
+/*
 .menu{
     display: flex;
     justify-content: space-between;
@@ -8,20 +10,197 @@
 }
 
 .navChoices{
-}
-
-.choices{
+    height: 100%;
     display: flex;
-    gap: 20px;
-    list-style: none;
-    padding-right: 20px;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
 }
 
-.searchBar{
 
+.buttonChoices{
+    height: 100%;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+}
+
+.searchBarArea{
+    flex: 1;
 }
 
 .accountChoices{
     margin: 0;
     text-align: center;
+    padding-right: 10px;
+    width: 5%;
+    color: white;
 }
+
+ */
+
+
+
+
+.grid{
+    background-color: cornflowerblue;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+}
+
+.gridSearchBarArea{
+    height: 100%;
+    max-width: 100%;
+    grid-column: 2/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media (max-width: 500px){
+    .grid{
+        background-color: cornflowerblue;
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+
+    .gridSearchBarArea{
+        grid-column: 2/3;
+    }
+
+    .gridAccountChoices{
+        grid-column: 3/4;
+        height: 100%;
+        width: 100%;
+        display: flex;
+    }
+
+    .logo{
+        grid-column: 1/2;
+    }
+
+    .imageSize{
+        height: 100%;
+        width: 95%;
+    }
+
+}
+
+@media (max-width: 899px){
+    .grid{
+        background-color: cornflowerblue;
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+
+    .gridSearchBarArea{
+        grid-column: 2/3;
+    }
+
+    .gridAccountChoices{
+        grid-column: 3/4;
+        height: 100%;
+        width: 100%;
+        display: flex;
+    }
+
+    .logo{
+        grid-column: 1/2;
+    }
+
+    .imageSize{
+        height: 100%;
+        width: 95%;
+    }
+}
+
+@media (min-width: 900px){
+    .grid{
+        background-color: cornflowerblue;
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+
+    .gridSearchBarArea{
+        grid-column: 2/3;
+    }
+
+    .gridAccountChoices{
+        grid-column: 3/4;
+        height: 100%;
+        width: 100%;
+        display: flex;
+    }
+
+    .logo{
+        grid-column: 1/2;
+    }
+
+    .imageSize{
+        height: 100%;
+        width: 95%;
+    }
+}
+
+
+
+/*
+.gridDivChoices{
+    height: 100%;
+    grid-column: 1/2;
+}
+
+.gridNav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.choices{
+    height: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    gap: max(0%, 5%);
+    list-style: none;
+    padding-right: max(1%, 5%);
+    padding-top: max(1%, 5%);
+}
+
+.choices > li{
+    max-width: 100%;
+    font-size: 100%;
+}
+
+.choices > li > link{
+    max-width: 100%;
+    font-size: 100%
+}
+
+
+.gridSearchBarArea{
+    height: 100%;
+    max-width: 100%;
+    grid-column: 2/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gridSearchComponent{
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25%;
+}
+
+.gridAccountChoices{
+    grid-column: 3/4;
+}
+ */
+

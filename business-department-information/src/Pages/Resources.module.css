@@ -1,0 +1,23 @@
+.resourceMain{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    height: 100%;
+
+}
+
+.addResource{
+    margin-bottom: 10px;
+    width: 15%;
+}
+
+.tableForResources{
+    margin-top: 20px;
+}
+
+.filterDuration{
+    height: 20%;
+}
+
+.bt{
+}

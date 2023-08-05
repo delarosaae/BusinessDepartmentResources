@@ -1,22 +1,125 @@
-.pageContainer{
-    max-height: 100svh;
-    min-height: 100svh;
-    max-width: 100svw;
-    min-width: 100svw;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: .2fr 1fr 1fr 1fr .25fr;
+/* autoprefixer grid: autoplace */
+
+* {
+    box-sizing: border-box;
 }
 
-.dashboardBar{
+/*
+.pageContainer{
+    max-width: 100svw;
+    min-height: 100svh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 4fr 4fr 4fr 1fr;
+}
+
+*/
+
+
+.pageContainer{
+    max-width: 100svw;
+    min-height: 100svh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 5fr 5fr 1fr;
+}
+
+.headerDash{
+    grid-column: 1/6;
+    grid-row: 1/2;
+}
+
+.sideBar{
+    grid-column: 1/2;
+    grid-row: 2/4;
+}
+
+.outlet{
+    grid-column: 2/6;
+    grid-row: 2/4;
+}
+
+.footerDash{
+    grid-column: 1/6;
+    grid-row: 4/5;
+    background-color: red;
+}
+
+@media (max-width: 500px) {
+
+    .pageContainer{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .headerDash{
+        height: 75px;
+        margin-top: 0;
+        background-color: red;
+    }
+
+    .sideBar{
+        margin-top: 0;
+    }
+
+    .outlet{
+        margin-bottom: 0;
+    }
+
+    .footerDash{
+        margin-bottom: 0;
+        background-color: red;
+        height: 75px;
+    }
+
+
+}
+
+@media (max-width: 899px) {
+
+    .pageContainer{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 5fr 5fr 1fr;
+        max-height: 100svh;
+
+    }
+
+    .headerDash{
+        grid-column: 1/6;
+        grid-row: 1/2;
+    }
+
+    .sideBar{
+        grid-column: 1/2;
+        grid-row: 2/4;
+    }
+
+    .outlet{
+        grid-column: 2/6;
+        grid-row: 2/4;
+    }
+
+    .footerDash{
+        grid-column: 1/6;
+        grid-row: 4/5;
+        background-color: red;
+    }
+}
+
+
+    /*
+
+
+
+    .dashboardBar{
     grid-column: 1/6;
     grid-row: 1/2;
 }
 
 .leftBar{
     grid-column: 1/2;
-    grid-row: 2/6;
-    background-color: lightcyan;
+    grid-row: 2/5;
+    background-color: hotpink;
 }
 
 .body{
@@ -25,9 +128,71 @@
 }
 
 .bottomBar{
-    padding: 1%;
     text-align: center;
     background-color: cornflowerblue;
     grid-column: 1/6;
     grid-row: 5/6;
 }
+
+
+
+     .gridUL > li {
+
+    }
+
+    .liRemoveDecoration
+    {
+        text-decoration: none;
+    }
+
+    .dashboardBar{
+
+    }
+
+
+
+
+
+
+    .dashboardBar{
+        display: grid;
+        grid-template-columns: 1fr 4fr 1fr;
+    }
+
+    .leftBar{
+        background-color: hotpink;
+
+    }
+
+    .body{
+    }
+
+    .gridNav{
+        grid-column: 1/2;
+        margin: 0;
+        display: flex;
+
+    }
+
+    .bottomBar{
+        text-align: center;
+        background-color: cornflowerblue;
+
+    }
+
+    .gridUL{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        list-style: none;
+        margin: 0;
+    }
+    */
+
+
+
+/*
+Doesn't work for some reason
+*/
+

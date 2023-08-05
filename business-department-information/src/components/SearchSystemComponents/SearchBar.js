@@ -1,5 +1,5 @@
 import styles from "./SearchBar.module.css"
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
 const SearchBar = (props) =>{
     
 
@@ -10,7 +10,7 @@ const SearchBar = (props) =>{
     async function fetchResults(value) {
         if(searchInput.length > 0)
         {
-            console.log("Longer than 0 letters")
+            // console.log("Longer than 0 letters")
             try {
                 if(value.includes(" "))
                 {
@@ -24,7 +24,7 @@ const SearchBar = (props) =>{
                 }
 
                 const data = await response.json()
-                console.log("Data of the search results " + data)
+                // console.log("Data of the search results " + data)
                 const listData = [];
                 for (const key in data)
                 {
@@ -36,7 +36,7 @@ const SearchBar = (props) =>{
                         resourceInfo: data[key].resourceInfo,
                     })
                 }
-                console.log("List of the data right here: " + listData)
+                // console.log("List of the data right here: " + listData)
                 props.setResults(listData)
             }
             catch (error)
@@ -52,10 +52,45 @@ const SearchBar = (props) =>{
         fetchResults(event.target.value)
     }
 
+    const [moduleStyle, setModuleStyle] = useState(true)
+
+    useEffect( () =>{
+        document.addEventListener("click", handleClickOutside, true)
+    })
+
+    const refOne = useRef(null)
+
+    const handleClickOutside = (e) =>{
+        if (!refOne.current.contains(e.target))
+        {
+            setModuleStyle(true)
+            props.showResultClicked(false)
+
+        }
+        else{
+            setModuleStyle(false)
+            props.showResultClicked(true)
+        }
+    }
+
     return(
         <form className={styles.searchBar} >
-            <input className={styles.inputField} value={searchInput} placeholder={"Search"}
-            onChange={handleSearchInput}/>
+            <input className={moduleStyle ? styles.inputField : styles.inputFieldClicked} value={searchInput} placeholder={"Search"}
+                  ref={refOne} onChange={handleSearchInput}
+            />
+            {/*
+            <input className={moduleStyle ? styles.inputField : styles.inputFieldClicked} value={searchInput} placeholder={"Search"}
+            onChange={handleSearchInput}
+                   onMouseLeave={e =>{
+                       setModuleStyle(true)
+                   }}
+
+                   onMouseEnter={e =>{
+                       setModuleStyle(false)
+                   }}
+            />
+            */}
+
         </form>
     );
 }

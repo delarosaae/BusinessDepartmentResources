@@ -2,6 +2,7 @@ import Table from 'react-bootstrap/Table';
 import {Link} from "react-router-dom";
 import {useLocation, useNavigate} from "react-router-dom";
 import {useState} from "react";
+import GetIDButton from "./GetIDButton";
 
 const StrippedTableEmployees = (props) =>{
 
@@ -21,6 +22,10 @@ const StrippedTableEmployees = (props) =>{
         // navigate('/Employees', {state:{depID: choosenID}});
     }
 
+    const deleteEmployee = (id) =>{
+        //console.log("StrippedTableEMployee ID to delete" + id)
+        props.employeeDelete(id)
+    }
 
     return(
 
@@ -68,6 +73,9 @@ const StrippedTableEmployees = (props) =>{
                         <td>{dept.employeeID}</td>
                         <td>{dept.firstName}</td>
                         <td>{dept.lastName}</td>
+                        <td>
+                            <GetIDButton idSend={deleteEmployee} idInfo={dept.employeeID}></GetIDButton>
+                        </td>
                     </tr>
                 })
             }

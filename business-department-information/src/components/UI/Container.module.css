@@ -1,5 +1,22 @@
 .container {
+    height: 100%;
+    width: 100%;
     padding: 32px;
     display: flex;
     flex-wrap: wrap;
+    overflow: auto;
+}
+
+
+@media (max-width: 500px) {
+
+    .container {
+        height: 100%;
+        width: 100%;
+        padding: 5%;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: auto;
+    }
+
 }

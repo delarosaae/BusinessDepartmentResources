@@ -4,14 +4,15 @@ import styles from './Department.module.css'
 import {useCallback, useEffect, useState} from "react";
 import InputModal from "../components/UI/InputModal";
 import StrippedTable from "../components/UI/StrippedTable";
-
+import EditDepartmentModal from "../components/UI/EditDepartmentModal";
 
 const Department = () =>{
 
-    const [departmentInfo, setDepartmentInfo] = useState([])
+    const [departmentInfo, setDepartmentInfo] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-    const tableData = ["ID #", "Department"]
-
+    const tableData = ["ID #", "Department"];
+    const [edit, setEdit] = useState(false);
+    const [chosenEditID, setChosenEditID] = useState('')
 
     const fetchDepartmentList = useCallback( async() =>{
         setIsLoading(true);
@@ -75,13 +76,35 @@ const Department = () =>{
         setSentinelAddTrue(false)
     }
 
+    const editDepartment = (id) =>{
+
+    }
+
+    const editHandler = (id) =>{
+        setEdit(!edit)
+        setChosenEditID(id)
+    }
+
+
+    const cancelEditHandler = () =>{
+        setEdit(false)
+    }
+
+    const editSavedAcceptedHandler = () =>{
+        if(edit === true){
+            fetchDepartmentList()
+        }
+        setEdit(!edit)
+    }
+
     return(
         <div className={styles.container}>
             {sentinelAddTrue && <InputModal changeInputModal={showInputModalHandler} cancel={cancelAdditionHandler}/>}
+            {edit && <EditDepartmentModal acceptedBackToModal={editSavedAcceptedHandler} idEdit={chosenEditID} cancelEdit={cancelEditHandler}></EditDepartmentModal>}
             <p>Org Name and List of Departments</p>
             <button aria-label="User Profile" onClick={showInputModalHandler}><Icon path={mdiPlusCircle} size={2} color="red"/> Add Department</button>
             <div className={styles.departmentViewer}>
-                <StrippedTable data={tableData} content={departmentInfo}></StrippedTable>
+                <StrippedTable editItem={editHandler} data={tableData}  content={departmentInfo}></StrippedTable>
             </div>
         </div>
     )

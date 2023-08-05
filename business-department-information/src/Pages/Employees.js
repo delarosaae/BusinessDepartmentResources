@@ -1,7 +1,7 @@
 import {useLocation} from "react-router-dom";
 import {useCallback, useEffect, useState} from "react";
-import styles from "./Department.module.css";
 import StrippedTableEmployees from "../components/UI/StrippedTableEmployees";
+import './Employee.module.css'
 
 const Employees = (props) =>{
 
@@ -56,11 +56,42 @@ const Employees = (props) =>{
         fetchEmployeeList();
     },[fetchEmployeeList])
 
+
+    async function deleteEmployeeHandler(id){
+
+        const info = {
+            deleteEmployeeID: id
+        }
+
+        const infoArray = []
+
+        infoArray.push(info)
+
+        const response = await fetch("http://localhost:5000/employees/deleteEmployee", {
+            method: 'DELETE',
+            body: JSON.stringify(infoArray),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        const data = await response.json();
+        window.location.reload();
+
+        //console.log(data);
+    }
+
+    const deleteEmployeeFromList = (id) =>{
+        console.log(id)
+
+        deleteEmployeeHandler(id)
+    }
+
     return(
         <div>
             <div>
-                <StrippedTableEmployees data={tableData} content={employeeList}></StrippedTableEmployees>
-            </div>        </div>
+                <StrippedTableEmployees employeeDelete={deleteEmployeeFromList} data={tableData} content={employeeList}></StrippedTableEmployees>
+            </div>
+        </div>
     )
 }
 

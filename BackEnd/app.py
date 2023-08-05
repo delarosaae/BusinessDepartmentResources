@@ -3,6 +3,8 @@ import json
 from flask import Flask, request, jsonify
 from flask_mysqldb import MySQL
 from flask_cors import CORS
+from datetime import datetime
+import calendar
 
 app = Flask(__name__)
 
@@ -74,6 +76,71 @@ def get_department_list():
         return jsonify(department)
 
 
+@app.route('/home/getDepartmentsStats', methods=['GET'])
+def get_department_stats():
+    if request.method == 'GET':
+        cursor = mysql.connection.cursor()
+        cursor.execute('''Select * from Departments''')
+        results = cursor.fetchall()
+        # dict_obj = {'row': results}
+        # print("This is dict Json dumps" + json.dumps(dict_obj))
+        # print(json.dumps(results))
+        department = []
+        content = {}
+        for row in results:
+            content = {'id': row[0], 'department': row[1], 'iconImage': row[2]}
+            department.append(content)
+            content = {}
+        print(department)
+        print("Json here " + json.dumps(department))
+
+        return jsonify(department)
+
+
+@app.route('/department/getDepartment/search', methods=['GET'])
+def get_department_info():
+    if request.method == 'GET':
+        args = request.args
+        value = args.get("seek", default=0, type=str)
+        cursor = mysql.connection.cursor()
+        query_string = "SELECT id, department, iconImage from departments where id = (%s)"
+        cursor.execute(query_string, [value])
+        results = cursor.fetchall()
+        department = []
+        for row in results:
+            content = {'id': row[0], 'department': row[1], 'iconImage': row[2]}
+            department.append(content)
+        print(department)
+        print("Json here " + json.dumps(department))
+
+        return jsonify(department)
+
+
+@app.route('/department/changeDepartment/', methods=['PUT'])
+def change_department_info():
+    if request.method == 'PUT':
+        data = request.get_json(force=True)
+        print("Here is the data that we got ")
+        print(data)
+        val = data[0]
+        print(val)
+        departmentNumber = val["departmentID"]
+        name = val["department"]
+        iconURL = val["iconImage"]
+        print("Put here -------- " + departmentNumber)
+        print("Put here -------- " + name)
+        print("Put here -------- " + iconURL)
+        cursor = mysql.connection.cursor()
+        query_string = "UPDATE departments set department = (%s), iconImage = (%s) where id = (%s)"
+        cursor.execute(query_string, [name, iconURL, departmentNumber])
+        mysql.connection.commit()
+        results = cursor.fetchall()
+        number = cursor.rowcount
+        print(jsonify(results))
+        print(number)
+        return jsonify(results)
+
+
 @app.route('/employees/getEmployees/search', methods=['GET'])
 def get_employees_list():
     if request.method == 'GET':
@@ -92,6 +159,24 @@ def get_employees_list():
             employees.append(content)
             content = {}
         return jsonify(employees)
+
+
+@app.route('/employees/deleteEmployee', methods=['DELETE'])
+def delete_employee():
+    if request.method == 'DELETE':
+        data = request.get_json(force=True)
+        print(data)
+        value = data[0]
+        print(value)
+        employeeIDToDelete = value["deleteEmployeeID"]
+        print(employeeIDToDelete)
+        cursor = mysql.connection.cursor()
+        query_String = "DELETE from employees where employeeID = (%s)"
+        cursor.execute(query_String, [employeeIDToDelete])
+        mysql.connection.commit()
+        results = cursor.fetchall()
+        print(results)
+        return jsonify(results)
 
 
 @app.route('/resources/addResource', methods=['POST'])
@@ -146,6 +231,31 @@ def get_search_list():
             searchResult.append(content)
             content = {}
         return jsonify(searchResult)
+
+
+@app.route('/resources/MostRecentResources', methods=['GET'])
+def get_most_recent():
+    if request.method == 'GET':
+        cursor = mysql.connection.cursor()
+        query_String = "select firstName, lastName, dateAdded, departmentSection, resourceInfo, resourcesID from resources r inner join employees e on r.createdByEmployeeID = e.employeeID inner join departments d on e.departmentID = d.id order by dateAdded desc LIMIT 5"
+        cursor.execute(query_String)
+        results = cursor.fetchall()
+        resources = []
+        content = {}
+        f = '%Y-%m-%d'
+        for row in results:
+            # dateAddedUnformatted = row[2].strftime(f)
+            dateAddedUnformatted = row[2]
+            monthNumber = dateAddedUnformatted.month
+            monthName = calendar.month_name[monthNumber]
+            dateAddedFormated = monthName + ' ' + str(dateAddedUnformatted.day) + ", " + str(dateAddedUnformatted.year)
+            content = {'name': row[0] + ' ' + row[1], 'dateAdded': dateAddedFormated, 'departmentSection': row[3], 'resourceInfo': row[4], 'resourceID': row[5]}
+            resources.append(content)
+            content = {}
+        print(resources)
+        print("Json here " + json.dumps(resources))
+        return jsonify(resources)
+
 
 
 if __name__ == '__main__':

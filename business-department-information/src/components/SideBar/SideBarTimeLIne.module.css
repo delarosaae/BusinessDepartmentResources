@@ -1,0 +1,45 @@
+.sidebartml {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    margin: 0;
+
+}
+.topTimeLine{
+    grid-row: 1/2;
+    overflow-x: scroll; /* Hide scrollbars */
+    padding-left: 25px;
+    padding-top: 25px;
+    padding-right: 25px;
+}
+
+.topTimeLine::-webkit-scrollbar {
+    display: none;
+}
+
+.topTitle{
+    margin-bottom: 5%;
+    margin-top: 0;
+}
+
+.topTitle > p {
+    text-align: center;
+    font-size: larger;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-color: black;
+}
+
+.thebottom {
+    grid-row: 2/3;
+    width: 100%;
+    background-color: lightblue;
+    margin: 0;
+    overflow: scroll; /* Hide scrollbars */
+}
+
+.thebottom::-webkit-scrollbar {
+    display: none;
+}

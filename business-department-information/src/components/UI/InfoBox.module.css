@@ -1,5 +1,67 @@
 .card {
-    padding: 16px;
-    margin: 16px;
-    width: 300px;
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px 10px lightgray;
+}
+
+.imagePosition{
+    height: 50%;
+    max-width: 100%;
+    min-width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.departmentName{
+    height: 20%;
+    min-width: 100%;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.departmentInfo{
+    height: 30%;
+    max-width: 100%;
+}
+
+@media (max-width: 500px) {
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px 10px lightgray;
+        height: 500px;
+    }
+
+    .imagePosition{
+        height: 50%;
+        max-width: 100%;
+        min-width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .departmentName{
+        height: 20%;
+        min-width: 100%;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    .departmentInfo{
+        height: 30%;
+        max-width: 100%;
+    }
+
 }
