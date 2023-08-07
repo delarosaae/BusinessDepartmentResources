@@ -3,6 +3,7 @@ import {Link, Outlet} from "react-router-dom";
 import styles from "./Root.module.css"
 import {useCallback, useEffect, useState} from "react";
 import SideBarTimeLine from "../components/SideBar/SideBarTimeLine";
+import logo from "../Images/946.jpg";
 
 const Root = (props) =>{
 
@@ -103,24 +104,45 @@ const Root = (props) =>{
                 </div>
             </div>
         </div>
-    * */
+    *
+
+    <header className={styles.headerDash}>
+                <Dashboard></Dashboard>
+            </header>
+            <div className={styles.outlet}>
+                <img className={styles.imageSize} src={logo} alt="Logo" />
+
+                </div>
+
+  <div className={styles.outlet}>
+                {/*
+                <img className={styles.imageSize} src={logo} alt="Logo" />
+
+                }
+<Outlet></Outlet>
+</div>
+
+    <div className={styles.leftBar}>
+                <SideBarTimeLine resourceTimeLineData={mostRecentResourcesTimeLine}></SideBarTimeLine>
+            </div>
+
+
+
+    */
 
     return(
-
 
         <div className={styles.pageContainer}>
             <header className={styles.headerDash}>
                 <Dashboard></Dashboard>
             </header>
-            <div className={styles.sideBar}>
-                <SideBarTimeLine resourceTimeLineData={mostRecentResourcesTimeLine}></SideBarTimeLine>
-            </div>
             <div className={styles.outlet}>
                 <Outlet></Outlet>
             </div>
-            <footer className={styles.footerDash}>
-                About Us
-            </footer>
+            <div className={styles.leftBar}>
+                <SideBarTimeLine resourceTimeLineData={mostRecentResourcesTimeLine}></SideBarTimeLine>
+            </div>
+            <footer className={styles.footerDash}>About</footer>
         </div>
 
 

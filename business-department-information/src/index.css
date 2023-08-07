@@ -1,4 +1,6 @@
-
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -14,7 +16,5 @@ code {
     monospace;
 }
 
-* {
-  box-sizing: border-box;
-}
+
 

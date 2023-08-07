@@ -1,3 +1,4 @@
+/*
 .card {
     width: 400px;
     height: 500px;
@@ -5,7 +6,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 20px;
+    margin: 25px;
     border-radius: 10px;
     box-shadow: 5px 5px 15px 10px lightgray;
 }
@@ -30,17 +31,58 @@
     height: 30%;
     max-width: 100%;
 }
+*/
 
+/*
 @media (max-width: 500px) {
 
     .card {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
+
         border-radius: 10px;
         box-shadow: 5px 5px 15px 10px lightgray;
-        height: 500px;
+        min-height: 0;
+        width: 75%;
+        margin-bottom: 5%;
+        flex: 1;
+    }
+
+
+    .imagePosition{
+        flex-grow: 0;
+        min-height: 0;
+        max-width: 100%;
+        min-width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .departmentName{
+        min-width: 100%;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .departmentInfo{
+        max-width: 100%;
+    }
+
+}
+*/
+
+/*
+
+@media (min-width: 816px) and (max-width: 900px) {
+
+    .card {
+        display: flex;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px 10px lightgray;
+        height: 300px;
+        width: 195px;
+        margin: 25px;
     }
 
     .imagePosition{
@@ -65,3 +107,191 @@
     }
 
 }
+*/
+
+@media (max-width: 500px) {
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        height: 100%;
+        width: 100%;
+        box-shadow: 5px 5px 15px 5px lightgray;
+    }
+
+    .imagePosition{
+        max-height: 50%;
+        min-height: 50%;
+        max-width: 100%;
+        min-width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .departmentName{
+        height: 20%;
+        min-width: 100%;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    .departmentInfo{
+        height: 30%;
+        max-width: 100%;
+    }
+
+}
+
+
+
+@media (min-width: 501px) and (max-width: 800px) {
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        height: 100%;
+        width: 100%;
+        box-shadow: 5px 5px 15px 5px lightgray;
+    }
+
+    .imagePosition{
+        height: 50%;
+        max-width: 100%;
+        min-width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .departmentName{
+        height: 20%;
+        min-width: 100%;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    .departmentInfo{
+        height: 30%;
+        max-width: 100%;
+    }
+
+}
+
+@media (min-width: 801px) and (max-width: 900px) {
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        height: 100%;
+        width: 100%;
+        box-shadow: 5px 5px 15px 5px lightgray;
+    }
+
+    .imagePosition{
+        height: 50%;
+        max-width: 100%;
+        min-width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .departmentName{
+        height: 20%;
+        min-width: 100%;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    .departmentInfo{
+        height: 30%;
+        max-width: 100%;
+    }
+
+}
+
+@media only screen and (min-width: 992px) {
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        height: 100%;
+        width: 100%;
+        box-shadow: 5px 5px 15px 5px lightgray;
+    }
+
+    .imagePosition{
+        height: 50%;
+        max-width: 100%;
+        min-width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .departmentName{
+        height: 20%;
+        min-width: 100%;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    .departmentInfo{
+        height: 30%;
+        max-width: 100%;
+    }
+
+}
+
+
+/*
+@media (min-width: 750px) and (max-width: 900px) {
+
+    .card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        box-shadow: 5px 5px 15px 10px lightgray;
+        height: 300px;
+        width: 75%;
+    }
+
+    .imagePosition{
+        height: 50%;
+        max-width: 100%;
+        min-width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .departmentName{
+        height: 20%;
+        min-width: 100%;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    .departmentInfo{
+        height: 30%;
+        max-width: 100%;
+    }
+
+}
+*/
+
+

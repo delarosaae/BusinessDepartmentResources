@@ -51,13 +51,19 @@ const Home = (props) =>{
         fetchDepartmentList();
     },[fetchDepartmentList])
 
-
-    return(
-        <div className={styles.home}>
-            <Container>
+    /*
+    <div className={styles.home}>
+            <Container listToShow={departments}>
                 {departments.map( dept => {
                     return <InfoBoxDepartment iconURL={dept.iconImage} name={dept.department}></InfoBoxDepartment>
                 })}
+            </Container>
+        </div>
+    * */
+
+    return(
+        <div className={styles.home}>
+            <Container listToShow={departments}>
             </Container>
         </div>
     )
